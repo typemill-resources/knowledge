@@ -1,0 +1,205 @@
+name: Knowledge Theme
+version: 1.1.0
+description: Create your knowledge base or help area with a simple and flexible knowledge theme.
+author: trendschau
+homepage: https://trendschau.net
+licence: MIT
+paypal: https://paypal.me/typemill
+amount: 25
+
+settings:
+  searchplaceholder: Search for pages ...
+
+forms:
+  fields:
+
+    searchplaceholder:
+          type: text
+          label: Placeholder for searchfield
+          class: large
+          description: mydescription
+
+    fieldset0:
+      type: fieldset
+      legend: Main Navigation
+      fields:
+        navilinks:
+          type: checkboxlist
+          label: Activate each navi-link individually
+          options:
+            link1: link 1
+            link2: link 2
+            link3: link 3
+            link4: link 4
+            link5: link 5
+        navilabel1:
+          type: text
+          label: label 1
+          fieldsize: half
+        navilink1:
+          type: text
+          label: link 1
+          fieldsize: half
+        navilabel2:
+          type: text
+          label: label 2
+          fieldsize: half
+        navilink2:
+          type: text
+          label: link 2
+          fieldsize: half
+        navilabel3:
+          type: text
+          label: label 3
+          fieldsize: half
+        navilink3:
+          type: text
+          label: link 3
+          fieldsize: half
+        navilabel4:
+          type: text
+          label: label 4
+          fieldsize: half
+        navilink4:
+          type: text
+          label: link 4
+          fieldsize: half
+        navilabel5:
+          type: text
+          label: label 5
+          fieldsize: half
+        navilink5:
+          type: text
+          label: link 5
+          fieldsize: half
+
+    fieldset1:
+      type: fieldset
+      legend: Highlight-boxes on startpage
+      fields:
+        infoboxes:
+          type: checkboxlist
+          label: Activate each box individually
+          options:
+            box1: Box 1
+            box2: Box 2
+            box3: Box 3
+    fieldset2:
+      type: fieldset
+      legend: Box 1
+      fields:
+        boxicon1:
+          type: select
+          label: select an icon
+          options: 
+            icon-bullhorn: bullhorn 
+            icon-check: checkmark
+            icon-code: code 
+            icon-cogs: cogs 
+            icon-envelope-o: envelope
+            icon-file-text-o: file 
+            icon-folder-o: folder 
+            icon-lightbulb-o: lightbulb 
+            icon-link: link
+            icon-plug: plug 
+            icon-comments-o: speech bubble
+        boxheadline1:
+          type: text
+          label: headline
+        boxtext1:
+          type: text
+          label: text
+        boxlabel1:
+          type: text
+          label: label
+          fieldsize: half
+        boxlink1:
+          type: text
+          label: link
+          fieldsize: half
+    fieldset3:
+      type: fieldset
+      legend: Box 2
+      fields:          
+        boxicon2:
+          type: select
+          label: select an icon
+          options: 
+            icon-bullhorn: bullhorn 
+            icon-check: checkmark
+            icon-code: code 
+            icon-cogs: cogs 
+            icon-envelope-o: envelope
+            icon-file-text-o: file 
+            icon-folder-o: folder 
+            icon-lightbulb-o: lightbulb 
+            icon-link: link
+            icon-plug: plug 
+            icon-comments-o: speech bubble
+        boxheadline2:
+          type: text
+          label: headline
+        boxtext2:
+          type: text
+          label: text
+        boxlabel2:
+          type: text
+          label: label
+          fieldsize: half
+        boxlink2:
+          type: text
+          label: link
+          fieldsize: half
+    fieldset4:
+      type: fieldset
+      legend: Box 3
+      fields:
+        boxicon3:
+          type: select
+          label: select an icon
+          options: 
+            icon-bullhorn: bullhorn 
+            icon-check: checkmark
+            icon-code: code 
+            icon-cogs: cogs 
+            icon-envelope-o: envelope
+            icon-file-text-o: file 
+            icon-folder-o: folder 
+            icon-lightbulb-o: lightbulb 
+            icon-link: link
+            icon-plug: plug 
+            icon-comments-o: speech bubble
+        boxheadline3:
+          type: text
+          label: headline
+        boxtext3:
+          type: text
+          label: text
+        boxlabel3:
+          type: text
+          label: label
+          fieldsize: half
+        boxlink3:
+          type: text
+          label: link
+          fieldsize: half
+    fieldset5:
+      type: fieldset
+      legend: Footer columns
+      fields:
+        footercolumns:
+          type: checkboxlist
+          label: Activate footer columns
+          options:
+            footer1: Column 1
+            footer2: Column 2
+            footer3: Column 3     
+        footer1:
+          type: textarea
+          label: footer column 1 (use markdown)
+        footer2:
+          type: textarea
+          label: footer column 2 (use markdown)
+        footer3:
+          type: textarea
+          label: footer column 3 (use markdown)

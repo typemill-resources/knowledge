@@ -1,0 +1,52 @@
+<section class="w-100 bg-custom-blue pa3 pb5 pv6-l">
+
+	<div class="mw8 center tc knowledgecover">
+
+		<h1 class="f2 f1-l lh-copy fw3">{{ title }}</h1>
+		
+		<div class="f5 f4-l lh-copy black-70">		
+			
+			{{ content }}
+		
+		</div>
+
+		<input type="text" class="center w-100 bw0 pa3 mt4 mb2" id="searchinput" placeholder="{{ settings.themes.knowledge.searchplaceholder }}">
+	</div>
+
+</section>
+
+<section class="w100 bg-near-white pa3 pb5">
+
+	<div class="mw8 center flex-l flex-wrap">
+	
+		{% for key,value in settings.themes.knowledge.infoboxes %}
+			
+			{% set icon = "boxicon" ~ loop.index %}
+			{% set headline = "boxheadline" ~ loop.index %}
+			{% set text = "boxtext" ~ loop.index %}
+			{% set label = "boxlabel" ~ loop.index %}
+			{% set link = "boxlink" ~ loop.index %}
+
+		    <div class="w-100 w-third-l pa3">
+		      <div class="ma3 mv5-l">
+				  <div class="tc">
+					<svg class="icon {{ settings.themes.knowledge[icon] }} fx gray mv3"><use xlink:href="#{{ settings.themes.knowledge[icon] }}"></use></svg>
+				    <h2 class="f4">{{ settings.themes.knowledge[headline] }}</h2>
+				  </div>
+				  <p class="lh-copy measure center f6 black-70">{{ settings.themes.knowledge[text] }}</p>
+				  <a class="w-100 measure tc f6 ba black-80 dim no-underline pv2 ph3 center db" href="{% if settings.themes.knowledge[link]|first == '/' %}{{base_url}}{% endif %}{{ settings.themes.knowledge[link] }}">{{ settings.themes.knowledge[label] }}</a>
+		      </div>
+		    </div>	
+		{% endfor %}
+
+	</div>
+
+</section>
+
+<aside class="w100 bg-custom-blue pa3 pv6-l">
+
+	<nav id="navigation" class="mw8 center flex-l flex-wrap">
+		{% include 'partials/navigation.twig' with { 'navclass' : 'w-100 w-third-l', 'navclassinner' : 'ma2 ma3-l pa3 pa4-m pa4-l bg-white'} %}
+	</nav>
+
+</aside>

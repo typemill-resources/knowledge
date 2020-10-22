@@ -1,0 +1,26 @@
+<div class="w-100 bg-custom-blue pa2 pa5-m pa5-l">
+
+	<div class="mw8 center">
+			<input type="text" class="center w-100 bw0 pa3 mb2" id="searchinput" placeholder="{{ settings.themes.knowledge.searchplaceholder }}">
+	</div>
+
+	<div class="flex-l mw8 center mt2-m mt2-l">
+		<article class="w-70-l bg-white pv5 ph4 ph5-l lh-copy mv1">
+
+			{% include 'partials/breadcrumb.twig' %}
+
+			<h1>{{ title }}</h1>
+					
+			{{ content }}
+
+		</article>
+		
+		<aside class="w-100 w-30-l">
+
+			<nav class="center" id="navigation">
+				{% include 'partials/navigation.twig' with { 'navclass' : 'w-100', 'navclassinner' : 'pa3 pa4-m pa4-l bg-white mv1 ml1-l'} %}
+			</nav>
+
+		</aside>
+	</div>
+</div>

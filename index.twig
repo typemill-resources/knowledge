@@ -1,0 +1,29 @@
+{% extends '/layout.twig' %}
+
+{% block title %}{{ metatabs.meta.title }} | {{ settings.title }}{% endblock %}
+
+{% block content %}
+
+	{% if home %}
+
+		{% include 'cover.twig' %}
+
+	{% elseif item.elementType == 'folder' %}
+		
+		{% if item.contains == 'pages' %}
+
+			{% include 'folder.twig' %}
+
+		{% elseif item.contains == 'posts' %}
+
+			{% include 'posts.twig' %}
+
+		{% endif %}
+
+	{% elseif item.elementType == 'file' %}
+		
+		{% include 'file.twig' %}
+	
+	{% endif %}
+	
+{% endblock %}

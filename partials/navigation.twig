@@ -1,0 +1,47 @@
+{% macro loop_over(navigation, navclass, navclassinner) %}
+
+    {% import _self as macros %}
+
+    {% for element in navigation %}
+
+        {% if element.elementType == 'folder' and element.keyPathArray|length == 1 %}
+
+		    <div class="{{navclass}}">
+		      	<div class="{{navclassinner}}">
+			    	<h3 class="f4"><a href="{{ element.urlAbs }}" class="link dark-gray underline-hover">{{ element.name }}</a></h3>
+		            <ul class="pa0">
+		                {{ macros.loop_over(element.folderContent, navclass, navclassinner) }}
+		            </ul>		      
+		      	</div>
+		    </div>	
+
+        {% else %}
+
+			{% if element.active %}
+				<li class="{{ element.elementType }} level-{{ element.keyPathArray|length }} active list pl0 pv1">
+			{% else %}
+				<li class="{{ element.elementType }} level-{{ element.keyPathArray|length }} list pl0 pv1">
+			{% endif %}
+
+            {% if element.elementType == 'folder' %}
+				<a href="{{ element.urlAbs }}" class="link dark-gray underline-hover">
+					<svg class="icon icon-folder-o gray"><use xlink:href="#icon-folder-o"></use></svg> {{ element.name }}
+				</a>
+            	<ul class="pa0">
+		            {{ macros.loop_over(element.folderContent) }}
+            	</ul>
+			{% else %}
+				<a href="{{ element.urlAbs }}" class="link dark-gray underline-hover">
+					<svg class="icon icon-file-text-o gray"><use xlink:href="#icon-file-text-o"></use></svg> {{ element.name }}
+				</a>
+			{% endif %}
+			</li>
+        
+        {% endif %}
+
+    {% endfor %}
+{% endmacro %}
+
+{% import _self as macros %}
+
+{{ macros.loop_over(navigation,navclass, navclassinner) }}

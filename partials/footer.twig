@@ -1,0 +1,22 @@
+{% set nowYear = "now"|date("Y") %}
+
+<section class="w100 bg-white f5 black-60 lh-copy">
+	
+	<div class="mw8 center pa3 pa5-l flex-l flex-wrap">
+		{% for column,key in settings.themes.knowledge.footercolumns %}
+			{% if settings.themes.knowledge[column] %}
+				<div class="w-100 w-third-l pa3">
+					{{ markdown(settings.themes.knowledge[column]) }}
+				</div>
+			{% endif %}
+		{% endfor %}		
+	</div>
+	<div class="mw8 center pa4 tc-l w100">
+		{% if settings.year is empty or settings.year == nowYear %}
+		    {% set copyrightYears = nowYear %}
+		{% else %}
+		    {% set copyrightYears = settings.year ~ ' - ' ~ nowYear %}
+		{% endif %}
+		<p>{{ settings.copyright }} by {{ settings.author }}, {{ copyrightYears }}. All Rights Reserved. Built with <a class="link custom-red hover-dark-gray" href="https://typemill.net">TYPEMILL</a>.</p>
+	</div>
+</section>
