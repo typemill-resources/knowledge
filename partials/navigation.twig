@@ -17,20 +17,26 @@
 
         {% else %}
 
-			{% if element.active %}
-				<li class="{{ element.elementType }} level-{{ element.keyPathArray|length }} active list pl0 pv1">
-			{% else %}
-				<li class="{{ element.elementType }} level-{{ element.keyPathArray|length }} list pl0 pv1">
-			{% endif %}
-
             {% if element.elementType == 'folder' %}
+				{% if element.active %}
+					<li class="{{ element.elementType }} level-{{ element.keyPathArray|length }} active list pl0 pv1">
+				{% else %}
+					<li class="{{ element.elementType }} level-{{ element.keyPathArray|length }} list pl0 pv1">
+				{% endif %}
+
 				<a href="{{ element.urlAbs }}" class="link dark-gray underline-hover">
 					<svg class="icon icon-folder-o gray"><use xlink:href="#icon-folder-o"></use></svg> {{ element.name }}
 				</a>
-            	<ul class="pa0">
-		            {{ macros.loop_over(element.folderContent) }}
-            	</ul>
-			{% else %}
+	            <ul class="pa0">
+			    	{{ macros.loop_over(element.folderContent) }}
+	            </ul>
+			{% elseif element.keyPathArray|length > 1 %}
+				{% if element.active %}
+					<li class="{{ element.elementType }} level-{{ element.keyPathArray|length }} active list pl0 pv1">
+				{% else %}
+					<li class="{{ element.elementType }} level-{{ element.keyPathArray|length }} list pl0 pv1">
+				{% endif %}
+
 				<a href="{{ element.urlAbs }}" class="link dark-gray underline-hover">
 					<svg class="icon icon-file-text-o gray"><use xlink:href="#icon-file-text-o"></use></svg> {{ element.name }}
 				</a>

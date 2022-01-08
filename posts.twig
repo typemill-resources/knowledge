@@ -1,7 +1,15 @@
 <div class="w-100 bg-custom-blue pa2 pa5-m pa5-l">
 
 	<div class="mw8 center">
+		{% if widgets %}
+			{% for index,widget in widgets %}
+				<div id="{{ index }}">
+					{{ widget }}
+				</div>
+			{% endfor %}
+		{% else %}
 			<input type="text" class="center w-100 bw0 pa3 mb2" id="searchinput" placeholder="{{ settings.themes.knowledge.searchplaceholder }}">
+		{% endif %}
 	</div>
 
 	<div class="flex-l mw8 center mt2-m mt2-l">
@@ -16,9 +24,14 @@
 
 			<section>
 
+				{% set pagesize = 10 %}
+				{% set pages = ( item.folderContent|length / pagesize)|round(0, 'ceil') %}
+				{% set currentpage = currentpage ? currentpage : 1 %}
+				{% set currentposts = (currentpage - 1) * pagesize %} 
+
 				<ul class="list pl0 pv3">
 
-					{% for element in item.folderContent %}
+					{% for element in item.folderContent|slice(currentposts, pagesize) %}
 
 						{% set post = getPageMeta(settings, element) %}
 						{% set date = element.order[0:4] ~ '-' ~ element.order[4:2] ~ '-' ~ element.order[6:2] %}
@@ -35,6 +48,19 @@
 					{% endfor %}
 					
 				</ul>
+
+				{% if pages > 1 %}
+					<hr class="mv4">
+					<p>Page: 
+						{% for i in 1 .. pages %}
+							{% if i == currentpage %}
+								{{i}}
+							{% else %}
+								<a class="page" href="{{ item.urlAbs }}/p/{{i}}">{{i}}</a>
+							{% endif %}
+						{% endfor %}
+					</p>
+				{% endif %}
 
 			</section>
 

@@ -1,7 +1,15 @@
 <div class="w-100 bg-custom-blue pa2 pa5-m pa5-l">
 
 	<div class="mw8 center">
+		{% if widgets %}
+			{% for index,widget in widgets %}
+				<div id="{{ index }}">
+					{{ widget }}
+				</div>
+			{% endfor %}
+		{% else %}
 			<input type="text" class="center w-100 bw0 pa3 mb2" id="searchinput" placeholder="{{ settings.themes.knowledge.searchplaceholder }}">
+		{% endif %}
 	</div>
 
 	<div class="flex-l mw8 center mt2-m mt2-l">
